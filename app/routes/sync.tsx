@@ -337,11 +337,11 @@ export default function Sync() {
                         </div>
 
                         <button
-                          onClick={() => handleSyncPlaylist(selectedPlaylist)}
-                          disabled={syncInProgress || !targetPlaylistName.trim()}
+                          onClick={() => selectedPlaylist && handleSyncPlaylist(selectedPlaylist)}
+                          disabled={syncInProgress || !targetPlaylistName.trim() || !selectedPlaylist}
                           className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                          {syncInProgress ? 'Syncing...' : `Sync "${selectedPlaylist.name}"`}
+                          {syncInProgress ? 'Syncing...' : selectedPlaylist ? `Sync "${selectedPlaylist.name}"` : 'Select a playlist'}
                         </button>
                       </div>
                     </div>

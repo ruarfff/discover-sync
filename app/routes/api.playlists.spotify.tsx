@@ -23,7 +23,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
       name: playlist.name,
       description: playlist.description || '',
       trackCount: playlist.tracks.total,
-      images: playlist.images,
+      images: playlist.images || [],
       isOwner: playlist.owner.id === 'spotifydiscover' ? false : true, // Simplified owner check
       isDiscoverWeekly: playlist.name === 'Discover Weekly' && playlist.owner.id === 'spotifydiscover'
     }));
