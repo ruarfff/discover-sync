@@ -29,7 +29,7 @@ VITE_APP_BASE_URL=http://localhost:5173
 
 1. Go to [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
 2. Create a new app
-3. Add redirect URI: `http://localhost:5173/auth/spotify/callback`
+3. Add redirect URI: `http://localhost:8888/auth/spotify/callback` (for `netlify dev`) or `http://localhost:5173/auth/spotify/callback` (for `npm run dev`)
 4. Copy your Client ID and Client Secret
 5. **Important**: For Discover Weekly access, you may need to request extended quota from Spotify
 
@@ -39,10 +39,12 @@ VITE_APP_BASE_URL=http://localhost:5173
 2. Create a MusicKit identifier in Certificates, Identifiers & Profiles
 3. Generate a private key (.p8 file) with MusicKit enabled
 4. Note your Team ID (10 digits) and Key ID (10 digits)
-5. Convert your private key to the format needed:
+5. Format your private key in the .env file:
    ```bash
-   # Your private key should be in one line with \\n for newlines
-   APPLE_MUSIC_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\\nYOUR_KEY_CONTENT_HERE\\n-----END PRIVATE KEY-----"
+   # Use actual newlines in your .env file, not \\n
+   APPLE_MUSIC_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----
+   YOUR_KEY_CONTENT_HERE
+   -----END PRIVATE KEY-----"
    ```
 
 ## Database Setup
@@ -89,7 +91,10 @@ The app uses Netlify's Neon DB integration. The database tables will be created 
 ## Development Commands
 
 ```bash
-# Start development server
+# RECOMMENDED: Start development server with Netlify Functions support
+netlify dev
+
+# Alternative: Start development server (Apple Music auth won't work)
 npm run dev
 
 # Build for production
@@ -101,6 +106,8 @@ npm run typecheck
 # Run tests
 npm test
 ```
+
+**Important**: Use `netlify dev` instead of `npm run dev` for local development to enable Netlify Functions support. This is required for Apple Music authentication to work properly.
 
 ## Deployment
 

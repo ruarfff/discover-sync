@@ -5,6 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Development Commands
 
 - `npm run dev` - Start development server with HMR at http://localhost:5173
+- `netlify dev` - **RECOMMENDED** - Start development server with Netlify Functions support at http://localhost:8888
 - `npm run build` - Create production build
 - `npm run start` - Start production server from built files
 - `npm run typecheck` - Generate types and run TypeScript checks
