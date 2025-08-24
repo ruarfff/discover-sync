@@ -10,10 +10,15 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@netlify/functions": "^4.2.2",
+    "@netlify/neon": "^0.1.0",
     "@netlify/vite-plugin-react-router": "^1.0.1",
     "@react-router/node": "^7.7.1",
     "@react-router/serve": "^7.7.1",
+    "@types/jsonwebtoken": "^9.0.10",
     "isbot": "^5.1.27",
+    "jsonwebtoken": "^9.0.2",
+    "nanoid": "^5.1.5",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router": "^7.7.1"
